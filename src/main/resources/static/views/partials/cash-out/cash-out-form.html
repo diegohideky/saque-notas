@@ -1,0 +1,34 @@
+<div class="col m6">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">
+                Saldo de <strong>{{form.user.username}}</strong>: R$ {{form.user.balance}},00
+            </span>
+
+            <strong>{{error}}</strong>
+
+            <div class="row">
+                <form class="col s12" ng-submit="submitCashOut()">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" ng-model="form.value" id="value" class="validate"
+                                   placeholder="Digite o valor que deseja sacar" ui-number-mask>
+                        </div>
+
+                        <button type="submit" class="waves-effect waves-light blue btn">Sacar</button>
+                    </div>
+                </form>
+            </div>
+
+            <strong ng-show="valuesGot.length > 0">Cédulas obtidas:</strong>
+
+            <div class="row">
+                <div ng-repeat="valueGot in valuesGot track by $index" class="col m6">
+                    <div class="chip">
+                        {{valueGot.quantity}}x R$ {{valueGot.value}},00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

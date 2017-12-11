@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col m4 offset-m4">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Registrar</span>
+
+                <div class="row">
+                    <form class="col s12" ng-submit="submit()">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" ng-model="form.username" id="username" class="validate"
+                                       placeholder="Usuário" >
+                                <label for="username">Usuário: </label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="password" ng-model="form.password" id="password" class="validate"
+                                       placeholder="Senha" >
+                                <label for="password">Senha: </label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="password" ng-model="form.passwordRepeat" id="passwordRepeat" class="validate"
+                                       placeholder="Repita a Senha" >
+                                <label for="password">Repita a senha: </label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" ng-model="form.balance" id="balance" class="validate"
+                                       placeholder="Saldo" ui-number-mask>
+                                <label for="balance">Saldo: </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="waves-effect waves-light blue btn">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

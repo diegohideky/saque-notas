@@ -1,0 +1,38 @@
+<div class="col m8">
+    <h3>Usuários</h3>
+    <hr>
+
+    <input type="text" ng-model="filter" placeholder="Pesquise aqui um usuário">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Saldo</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | filter: filter" ng-if="user.role === 'USER'">
+                <td>
+                    <span ng-if="!user.edit">{{user.username}}</span>
+                    <input type="text" ng-if="user.edit" ng-model="user.editUsername"/>
+                </td>
+                <td>
+                    <span ng-if="!user.edit">R$ {{user.balance}},00</span>
+                    <input type="text" ng-if="user.edit" ng-model="user.editBalance" ui-number-mask/>
+                </td>
+                <td>
+                    <div ng-if="!user.edit">
+                        <button ng-click="editMode(user)" class="waves-effect waves-teal btn-flat"><i class="fa fa-pencil-square"></i></button>
+                        <button ng-click="deleteUser(user)" class="waves-effect waves-teal btn-flat"><i class="fa fa-trash"></i></button>
+                    </div>
+                    <div ng-if="user.edit">
+                        <button ng-click="update(user)" class="waves-effect waves-teal btn-flat"><i class="fa fa-check"></i></button>
+                        <button ng-click="cancelEdition(user)" class="waves-effect waves-teal btn-flat"><i class="fa fa-close"></i></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
